@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* ─── NEXUS 2026 — STAR WARS GALACTIC CINEMATIC DESIGN SYSTEM ─── */
+
+:root {
+  /* Core palette */
+  --bg-primary:     #030407;
+  --bg-secondary:   #090C12;
+  --surface:        #0D1117;
+  
+  /* Text */
+  --text-primary:   #F0F4F8;
+  --text-muted:     #8B949E;
+  --text-dim:       #484F58;
+  
+  /* Star Wars Accents */
+  --plasma-cyan:    #00D9FF;
+  --lightsaber-blue:#2E7CF6;
+  --kyber-gold:     #F5A623;
+  --saber-red:      #E63946;
+  --imperial-white: #FFFFFF;
+  
+  /* Borders */
+  --border:         #1F2937;
+  --border-active:  rgba(0, 217, 255, 0.4);
+
+  /* Glow */
+  --glow-cyan:      rgba(0, 217, 255, 0.3);
+  --glow-blue:      rgba(46, 124, 246, 0.3);
+  --glow-gold:      rgba(245, 166, 35, 0.3);
+}
+
+@theme inline {
+  --color-bg-primary:    var(--bg-primary);
+  --color-bg-secondary:  var(--bg-secondary);
+  --color-surface:       var(--surface);
+  --color-text-primary:  var(--text-primary);
+  --color-text-muted:    var(--text-muted);
+  --color-[#00D9FF]:     var(--plasma-cyan);
+  --color-gold:          var(--kyber-gold);
+  --color-lightsaber:    var(--lightsaber-blue);
+  --color-border:        var(--border);
+  --font-display:        "Space Grotesk", "Rajdhani", system-ui, sans-serif;
+  --font-body:           "Inter", system-ui, sans-serif;
+  --font-mono:           "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ─── RESET & BASE ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+html { scroll-behavior: auto; }
+
+body {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 217, 255, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(46, 124, 246, 0.05) 0%, transparent 60%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Hyperspace / Star field texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(240, 244, 248, 0.12) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+::selection {
+  background: rgba(0, 217, 255, 0.3);
+  color: #FFFFFF;
+}
+
+@media (hover: none) {
+  body { cursor: auto; }
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--plasma-cyan); border-radius: 2px; }
+
+/* ─── TYPOGRAPHY ─── */
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
+
+.text-display-xl { font-size: clamp(3.5rem, 9vw, 9rem);   line-height: 0.92; letter-spacing: -0.03em; }
+.text-display-lg { font-size: clamp(2.5rem, 6vw, 6rem);   line-height: 0.98; letter-spacing: -0.025em; }
+.text-display-md { font-size: clamp(1.8rem, 4vw, 3.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+.text-display-sm { font-size: clamp(1.2rem, 2.5vw, 2rem); line-height: 1.15; letter-spacing: -0.01em; }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--plasma-cyan);
+}
+
+/* ─── STAR WARS BUTTONS ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2.25rem;
+  background: var(--plasma-cyan);
+  color: #030407;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--plasma-cyan);
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.btn-primary:hover {
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 25px var(--glow-cyan);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2.25rem;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  cursor: none;
+  transition: all 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: var(--plasma-cyan);
+  color: var(--plasma-cyan);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.15);
+}
+
+/* ─── LINK ANIMATIONS ─── */
+.link-gold {
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+.link-gold::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background: var(--plasma-cyan);
+  transition: width 0.25s ease;
+}
+.link-gold:hover {
+  color: #FFFFFF;
+}
+.link-gold:hover::after {
+  width: 100%;
+}
+
+/* ─── SECTION SCAFFOLDING ─── */
+.section {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(5rem, 10vw, 9rem);
+  padding-inline: clamp(1.5rem, 5vw, 6rem);
+}
+
+.section-inner {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

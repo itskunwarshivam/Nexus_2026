@@ -1,0 +1,29 @@
+[
+  {
+    "id": "adm-01",
+    "username": "admin",
+    "email": "admin@nexus2026.edu",
+    "password": "admin",
+    "name": "Chief Commander Alex",
+    "role": "SUPER_ADMIN",
+    "badge": "LEVEL 5 CLEARANCE"
+  },
+  {
+    "id": "adm-02",
+    "username": "organizer",
+    "email": "organizer@nexus2026.edu",
+    "password": "nexus",
+    "name": "Event Coordinator Sarita",
+    "role": "EVENT_ORGANIZER",
+    "badge": "LEVEL 3 CLEARANCE"
+  },
+  {
+    "id": "adm-03",
+    "username": "scanner",
+    "email": "staff@nexus2026.edu",
+    "password": "pass",
+    "name": "Entry Check-in Staff Unit 01",
+    "role": "CHECKIN_STAFF",
+    "badge": "LEVEL 1 CLEARANCE"
+  }
+]
